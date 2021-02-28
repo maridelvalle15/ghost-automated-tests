@@ -1,12 +1,6 @@
 if ENV["ADB_DEVICE_ARG"].nil?
   require 'kraken-mobile/steps/web/kraken_steps'
 
-  # Then(/^I select option with value "(.*?)" for dropdown with id "(.*?)"$/) do |opValue, selId|
-  #   drop = @driver.find_element(:id, selId)
-  #   choose = Selenium::WebDriver::Support::Select.new(drop)
-  #   choose.select_by(:value, opValue)
-  # end
-  
   Then(/^I enter "([^\"]*)" into input field having className "([^\"]*)"$/) do |text, className|
     @driver.find_element(:class, className).send_keys(text)
     sleep 2
@@ -17,20 +11,34 @@ if ENV["ADB_DEVICE_ARG"].nil?
     sleep 2
   end
 
+  Then(/^I enter "([^\"]*)" into input field having classNames "([^\"]*)" "([^\"]*)" "([^\"]*)" "([^\"]*)"$/) do |text, className0, className1, className2, className3|
+    container = @driver.find_elements(:class, className0)[0]
+    element = container.find_elements(:class, className1)[-1]
+    child = element.find_element(:class, className2)
+    child.find_element(:class, className3).send_keys(text)
+    sleep 2
+  end
+
+  Then(/^I click on element having classNames "([^\"]*)" "([^\"]*)" "([^\"]*)"$/) do |className0, className1, className2|
+    container = @driver.find_elements(:class, className0)[0]
+    element = container.find_elements(:class, className1)[0]
+    element.find_element(:class, className2).click
+    sleep 2
+  end
+
+  Then(/^I click on element having classNames "([^\"]*)" "([^\"]*)"$/) do |className0, className1|
+    container = @driver.find_element(:class, className0)
+    element = container.find_element(:class, className1).click()
+    sleep 2
+  end
+
+  Then(/^I click on element that links to "(.*?)"$/) do |link|
+    @driver.find_element(:xpath, '//a[@href="' + link + '"]').click
+    sleep 2
+  end
+
   Then(/^I should see the text "(.*?)"$/) do |text|
     @driver.find_element(:class=>"gh-main").text.include? 'About Google'
   end
 
-  # Then(/^I store a variable with the current url$/) do
-  #   $url_variable = @driver.current_url    
-  #   File.write('./.variable.txt', $url_variable)
-  #   puts($url_variable) 
-  # end
-
-  # Given(/^I navigate to page with the url stored in the variable$/) do
-  #   $url_variable = IO.read("./.variable.txt")  
-  #   puts($url_variable)
-  #   @driver.navigate.to $url_variable
-  #   sleep 2
-  # end
 end
