@@ -6,7 +6,8 @@ Este repositorio tendrá almacenados los artefactos generados de las pruebas aut
 * Pilar Guataquira: j.guataquira@uniandes.edu.co
 
 ### Funcionalidades seleccionadas y casos de prueba
-* Inicio de sesión
-* Cierre de sesión
+* Inicio de sesión para usuario registrado en la aplicación
+* Cierre de sesión del usuario que se encuentra loggeado en la aplicación
 * Crear nuevas opciones de navegación del sitio
 * Creación de posts para mostrar en el sitio
+* Eliminación de posts
