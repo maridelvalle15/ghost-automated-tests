@@ -23,3 +23,8 @@ Este repositorio tendrá almacenados los artefactos generados de las pruebas aut
 * Esenario 2 para F04: Creación de post con un título de 500 caracteres sin espacio
 * Esenario 1 para F05: Eliminación de un post publicado
 * Esenario 2 para F05: Eliminación de un post que no está publicado
+
+### Ejecución de pruebas con kraken
+1- Ingresar al directorio pruebas-kraken
+2- Modificar el archivo Gemfile, y en la cuarta línea modificar el path para que tenga la ruta correspondiente al proyecto KrakenMobile
+3- Ejecutar kraken-mobile run para correr las pruebas
