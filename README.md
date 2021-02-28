@@ -13,16 +13,16 @@ Este repositorio tendrá almacenados los artefactos generados de las pruebas aut
 * F05: Eliminación de posts
 
 ### Escenarios de prueba
-* Esenario 1 para F01: Acceso autorizado o permitido para usuario registrado en la aplicación
-* Esenario 2 para F01: Acceso denegado para usuario no registrado en la aplicación
-* Esenario 1 para F02: Cierre de sesión exitoso para un usuario que estaba logueado
-* Esenario 2 para F02: No acceso a la administración de la app cuando se cierra sesión
-* Esenario 1 para F03: Publicaición de nueva pestaña en el Blog
-* Esenario 2 para F03: Eliminación de pestaña del blog
-* Esenario 1 para F04: Creación de post con un título de 9 caracteres sin espacios
-* Esenario 2 para F04: Creación de post con un título de 500 caracteres sin espacio
-* Esenario 1 para F05: Eliminación de un post publicado
-* Esenario 2 para F05: Eliminación de un post que no está publicado
+* Escenario 1 para F01: Acceso autorizado o permitido para usuario registrado en la aplicación
+* Escenario 2 para F01: Acceso denegado para usuario no registrado en la aplicación
+* Escenario 1 para F02: Cierre de sesión exitoso para un usuario que estaba logueado
+* Escenario 2 para F02: No acceso a la administración de la app cuando se cierra sesión
+* Escenario 1 para F03: Publicación de nueva pestaña en el Blog
+* Escenario 2 para F03: Eliminación de pestaña del blog
+* Escenario 1 para F04: Creación de post con un título de 9 caracteres sin espacios
+* Escenario 2 para F04: Creación de post con un título de 500 caracteres sin espacio
+* Escenario 1 para F05: Eliminación de un post publicado
+* Escenario 2 para F05: Eliminación de un post que no está publicado
 
 ### Ejecución de pruebas con kraken
 1. Ingresar al directorio pruebas-kraken
