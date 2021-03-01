@@ -38,7 +38,7 @@ if ENV["ADB_DEVICE_ARG"].nil?
   end
 
   Then(/^I should see the text "(.*?)"$/) do |text|
-    @driver.find_element(:class=>"gh-main").text.include? 'About Google'
+    @driver.find_element(:class=>"gh-main").text.include? text
   end
 
 end
