@@ -6,7 +6,7 @@ Feature: Login
     Then I enter "marisela.delvalle93@gmail.com" into input field having className "email"
     Then I enter "12345678" into input field having className "password"
     Then I click on element having className "login"
-    Then I should see text "Blog mari"
+    Then I should see text "View site"
 
   @user2 @web
   Scenario: As a user I can't log with wrong email

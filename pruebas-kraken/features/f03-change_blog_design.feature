@@ -10,6 +10,7 @@ Feature: Change blog design
     Then I enter "New navigation" into input field having classNames "gh-blognav-container" "gh-blognav-item" "gh-blognav-label" "gh-input"
     Then I enter "newUrl" into input field having classNames "gh-blognav-container" "gh-blognav-item" "gh-blognav-url" "gh-input"
     Then I click on element having classNames "gh-canvas-header" "gh-btn-blue"
+    Then I should see text "Saved"
 
   @user2 @web
   Scenario: As a user I can delete navigation options
@@ -20,3 +21,4 @@ Feature: Change blog design
     Then I click on element that links to "#/settings/design/"
     Then I click on element having classNames "gh-blognav-container" "gh-blognav-item" "gh-blognav-delete"
     Then I click on element having classNames "gh-canvas-header" "gh-btn-blue"
+    Then I should see text "Saved"
