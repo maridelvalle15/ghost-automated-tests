@@ -20,7 +20,7 @@ Este repositorio tendrá almacenados los artefactos generados de las pruebas aut
 * Escenario 1 para F03: Publicación de nueva pestaña en el Blog
 * Escenario 2 para F03: Eliminación de pestaña del blog
 * Escenario 1 para F04: Creación de post con un título de 9 caracteres sin espacios
-* Escenario 2 para F04: Creación de post con un título de 500 caracteres sin espacio
+* Escenario 2 para F04: Creación de post con un título de 500 caracteres
 * Escenario 1 para F05: Eliminación de un post publicado
 * Escenario 2 para F05: Eliminación de un post que no está publicado
 
