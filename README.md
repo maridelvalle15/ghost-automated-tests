@@ -27,4 +27,7 @@ Este repositorio tendrá almacenados los artefactos generados de las pruebas aut
 ### Ejecución de pruebas con kraken
 1. Ingresar al directorio pruebas-kraken
 2. Modificar el archivo Gemfile, y en la cuarta línea modificar el path para que tenga la ruta correspondiente al proyecto KrakenMobile
+3. Para ejecutar todas las pruebas de manera exitosa, se deben modificar los archivos feature/*.feature colocando las credenciales (correo y contraseña) de un usuario existente en la base de datos de la aplicación Ghost
+4. Para ejecutar f03-change_blog_design de manera exitosa debe existir al menos una opción de navegación primaria existente
+5. Para ejecutar f05-delete_post de manera exitosa debe existir al menos un post publicado y al menos un post en modo borrador (draft)
 3. Ejecutar kraken-mobile run para correr las pruebas
