@@ -11,22 +11,18 @@ describe('Ghost', function () {
 
     it('Ajustes en el diseño del blog - escenario 1',function(){
         cy.get('#ember41').click()
-        cy.get('.gh-blognav-item.ember-view').type('Nueva Pestaña')
-        cy.get('.gh-blognav-add').click()
-        //cy.get('.gh-content-status-published.nowrap').contains('Published').click({force: true})
-        //cy.get('.post-settings').click()
-        //cy.get('.gh-btn.gh-btn-hover-red.gh-btn-icon.settings-menu-delete-button').click()
-        //cy.get('.gh-btn.gh-btn-red.gh-btn-icon.ember-view').contains('Delete').click()
+        cy.get('#ember94').type('Nueva Pestaña',{force: true})
+        cy.get('#ember92 > .gh-blognav-add').click({force: true})
+        cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').click()
+        cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').contains('Saved')
 
     })
 
-    //it('Ajustes en el diseño del blog - escenario 2',function(){
-      //  cy.get('#ember28').click()
-        //cy.get('.gh-content-status-draft.gh-badge.gh-badge-purple.nowrap').contains('Draft').click({force: true})
-        //cy.get('.post-settings').click()
-        //cy.get('.gh-btn.gh-btn-hover-red.gh-btn-icon.settings-menu-delete-button').click()
-        //cy.get('.gh-btn.gh-btn-red.gh-btn-icon.ember-view').contains('Delete').click()
-
-    //})
+    it('Ajustes en el diseño del blog - escenario 2',function(){
+        cy.get('#ember41').click()
+        cy.get('#ember93 > .gh-blognav-delete > svg').click({force: true})
+        cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').click()
+        cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').contains('Saved')
+    })
 
 })
