@@ -11,13 +11,6 @@ describe('Ghost', function () {
   
     context('Creación de posts para mostrar en el sitio (Esenario 1 para F02)',function(){
 
-        it('a',function(){
-            cy.get('#ember28').click()
-            cy.get('.ember-view.gh-btn.gh-btn-green').click()
-            cy.get('.koenig-editor__editor-wrapper').click()
-            cy.get('.koenig-editor__editor-wrapper').type('prueba 1')
-
-        })
         it('b', function(){
             cy.get('#ember28').click()
             const asdasd = cy.get('.gh-list-row.gh-posts-list-item').first()
@@ -33,13 +26,6 @@ describe('Ghost', function () {
 
     context('Creación de posts para mostrar en el sitio (Esenario 2 para F02)',function(){
 
-        it('a',function(){
-            cy.get('#ember28').click()
-            cy.get('.ember-view.gh-btn.gh-btn-green').click()
-            cy.get('.koenig-editor__editor-wrapper').click()
-            cy.get('.koenig-editor__editor-wrapper').type('prueba 2')
-
-        })
         it('b', function(){
             cy.get('#ember28').click()
             const asdasd = cy.get('.gh-list-row.gh-posts-list-item').first()
