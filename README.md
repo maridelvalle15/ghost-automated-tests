@@ -27,16 +27,17 @@ Este repositorio tendrá almacenados los artefactos generados de las pruebas aut
 ### Ejecución de pruebas con kraken
 1. Ingresar al directorio pruebas-kraken
 2. Modificar el archivo Gemfile, y en la cuarta línea modificar el path para que tenga la ruta correspondiente al proyecto KrakenMobile
-3. Para ejecutar todas las pruebas de manera exitosa, se deben modificar los archivos feature/*.feature colocando las credenciales (correo y contraseña) de un usuario existente en la base de datos de la aplicación Ghost
-4. Para ejecutar f03-change_blog_design de manera exitosa debe existir al menos una opción de navegación primaria existente
-5. Para ejecutar f05-delete_post de manera exitosa debe existir al menos un post publicado y al menos un post en modo borrador (draft)
-3. Ejecutar kraken-mobile run para correr las pruebas
+3. Para ejecutar todas las pruebas de manera exitosa, se deben modificar los archivos feature/*.feature colocando: las credenciales (correo y contraseña) de un usuario existente en la base de datos de la aplicación Ghost, y la url correspondiente a la aplicación Ghost
+4. La aplicación Ghost debe estar ejecutándose
+5. Para ejecutar f03-change_blog_design de manera exitosa debe existir al menos una opción de navegación primaria existente
+6. Para ejecutar f05-delete_post de manera exitosa debe existir al menos un post publicado y al menos un post en modo borrador (draft)
+7. Ejecutar kraken-mobile run para correr las pruebas
 
 ### Ejecución de pruebas con Cypress
 1. Abra Cypres y para iniciar el proceso elija la carpeta pruebas-cypress
 2. Cypres le cargará los archivos y tendrá acceso a la carpeta integration\examples
 3. Dentro de esta carpeta identifique los archivos denominados ghost_F0X_testing.js. Cada uno de estos archivos contiene las pruebas de los dos escenarios para cada una de las funcionalidades, por ejemplo, el archivo denominado ghost_F01_testing.js contiene las pruebas para los dos escenarios de la Funcionalidad 01 (Inicio de sesión para usuario registrado en la aplicación).
-4. Antes de correr cada prueba deberá escribir las credenciales de acceso a Ghost (e-mail y password), deberá tener la aplicación corriendo y validar el puerto localhost en el que corre su aplicación (de ser necesario, ajústelo también antes de correr cada prueba)
+4. Antes de correr cada prueba, deberá modificar cada uno de los archivos de las pruebas colocando las credenciales de acceso a Ghost (e-mail y password), deberá tener la aplicación corriendo y validar el puerto localhost en el que corre su aplicación (de ser necesario, ajústelo también antes de correr cada prueba)
 5. Para iniciar la ejecución de las pruebas, dé clic en cada uno de los archivos mencionados en el punto 3. Tenga en cuenta que solo puede correr un test a la vez, el que haya seleccionado
 6. La prueba comenzará a correr y le mostrará el resultado
 7. Si muestra error, pause la prueba y vuelva a correrla
