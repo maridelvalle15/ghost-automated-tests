@@ -11,8 +11,8 @@ describe('Ghost', function () {
 
     it('Ajustes en el diseño del blog - escenario 1',function(){
         cy.get('#ember41').click()
-        cy.get('#ember94').type('Nueva Pestaña',{force: true})
-        cy.get('#ember92 > .gh-blognav-add').click({force: true})
+        cy.get('.gh-blognav-container > .gh-blognav > .gh-blognav-item > .gh-blognav-line > .gh-blognav-label > .gh-input').first().type('Nueva Pestaña',{force: true})
+        cy.get('.gh-blognav-container > .gh-blognav > .gh-blognav-item > .gh-blognav-add').first().click({force: true})
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').click()
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').contains('Saved')
 
@@ -20,7 +20,7 @@ describe('Ghost', function () {
 
     it('Ajustes en el diseño del blog - escenario 2',function(){
         cy.get('#ember41').click()
-        cy.get('#ember93 > .gh-blognav-delete > svg').click({force: true})
+        cy.get('.gh-blognav-container > .gh-blognav > .sortable-objects > .js-draggableObject > .gh-blognav-item > .gh-blognav-delete').first().click({force: true})
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').click()
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').contains('Saved')
     })
