@@ -46,6 +46,7 @@ NOTA: Para ejecutar ghost_F05_testing.js de manera exitosa debe existir al menos
 
 ### Funcionalidades seleccionadas y escenarios de prueba - VRT
 1. Edición de correo del usuario loggeado en la aplicación
+    - Indented four spaces.
     1.1 Ingresar un correo con formato inválido (sin @) - no permite modificar
     1.2 Ingresar un correo con formato inválido (sin xx.xx despues del @)  - no permite modificar
     1.3 Ingresar un correo con formato válido - debe permitir modificar
