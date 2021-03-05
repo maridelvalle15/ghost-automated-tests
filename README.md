@@ -51,8 +51,8 @@ NOTA: Para ejecutar ghost_F05_testing.js de manera exitosa debe existir al menos
     - 1.3 Ingresar un correo con formato válido - debe permitir modificar
     - 1.4 Ingresar un correo con formato válido - al cerrar sesión debe poder ingresar con el nuevo correo 
 2. Edición de contraseña del usuario loggeado en la aplicación
-  2.1 Ingresar contraseña de 8 caracteres - permite modificar
-  2.2 Ingresar contraseña con caracteres especiales - permite modificar
-  2.3 Ingresar contraseña alfanumérica de 10 caracteres - permite modificar
-  2.4 Ingresar contraseña alfanumérica de 10 caracteres - permite modificar y al cerrar sesión debe poder ingresar con la nueva contraseña
+    - 2.1 Ingresar contraseña de 8 caracteres - permite modificar
+    - 2.2 Ingresar contraseña con caracteres especiales - permite modificar
+    - 2.3 Ingresar contraseña alfanumérica de 10 caracteres - permite modificar
+    - 2.4 Ingresar contraseña alfanumérica de 10 caracteres - permite modificar y al cerrar sesión debe poder ingresar con la nueva contraseña
 3. Eliminación de posts
