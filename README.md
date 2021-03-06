@@ -58,3 +58,10 @@ NOTA: Para ejecutar ghost_F05_testing.js de manera exitosa debe existir al menos
 * Escenario 2 para F07: Ingresar contraseña con caracteres especiales - permite modificar
 * Escenario 3 para F07: Ingresar contraseña alfanumérica de 10 caracteres - permite modificar
 * Escenario 4 para F07: Ingresar contraseña alfanumérica de 10 caracteres - permite modificar y al cerrar sesión debe poder ingresar con la nueva contraseña
+
+### Ejecución de pruebas con Cypress - VRT
+Adicional a las instrucciones mencionadas para las pruebas E2E, tomar en cuenta lo siguiente:
+* Si falla(s) alguno(s) de los escenarios para F06, asegúrese que puede ingresar con su correo. De lo contrario, debe restaurar su correo al que ha manejado siempre intentando hacer login con alguno de los siguientes correos, usando su contraseña habitual:
+    * correovalido1@correo.com
+    * correovalido2@correo.com
+    * Finalmente, ejecute las pruebas nuevamente.
