@@ -47,7 +47,9 @@ NOTA: Para ejecutar ghost_F05_testing.js de manera exitosa debe existir al menos
 ### Funcionalidades seleccionadas - VRT
 * F06: Edición de correo del usuario loggeado en la aplicación
 * F07: Edición de contraseña del usuario loggeado en la aplicación
-* F08: Eliminación de posts
+* F08: Creación de tags para posts del sitio
+* F09: Edición de tags para posts del sitio
+* F10: Invitación de usuarios para que colaboren en la gestión del sitio
 
 ### Escenarios de prueba - VRT
 * Escenario 1 para F06: Ingresar un correo con formato inválido (sin @) - no permite modificar
@@ -58,6 +60,18 @@ NOTA: Para ejecutar ghost_F05_testing.js de manera exitosa debe existir al menos
 * Escenario 2 para F07: Ingresar contraseña con caracteres especiales - permite modificar
 * Escenario 3 para F07: Ingresar contraseña alfanumérica de 10 caracteres - permite modificar
 * Escenario 4 para F07: Ingresar contraseña alfanumérica de 10 caracteres - permite modificar y al cerrar sesión debe poder ingresar con la nueva contraseña
+* Escenario 1 para F08: Crear una tag pública
+* Escenario 2 para F08: Crear una tag sin nombre - no permite crear
+* Escenario 3 para F08: Crear una tag interna
+* Escenario 4 para F08: Crear una tag interna con un mismo nombre ya existente
+* Escenario 1 para F09: Editar nombre de un tag
+* Escenario 2 para F09: Borrar nombre de un tag creado y guardar - no permite guardar
+* Escenario 3 para F09: Editar slug de un tag
+* Escenario 4 para F09: Editar descripción de un tag
+* Escenario 1 para F10: Invitar persona sin ingresar un email - no permite enviar invitación
+* Escenario 2 para F10: Invitar persona con email inválido - no permite enviar invitación
+* Escenario 3 para F10: Invitar persona con email válido - permite enviar invitación
+* Escenario 4 para F10: Invitar persona con un mismo e-mail ya invitado - no permite enviar invitación
 
 ### Ejecución de pruebas con Cypress - VRT
 Adicional a las instrucciones mencionadas para las pruebas E2E, tomar en cuenta lo siguiente:
