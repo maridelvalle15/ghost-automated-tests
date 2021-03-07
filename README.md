@@ -74,7 +74,10 @@ NOTA: Para ejecutar ghost_F05_testing.js de manera exitosa debe existir al menos
 * Escenario 4 para F10: Invitar persona con un mismo e-mail ya invitado - no permite enviar invitación
 
 ### Ejecución de pruebas con Cypress - VRT
-Adicional a las instrucciones mencionadas para las pruebas E2E, tomar en cuenta lo siguiente:
+* Debe tener instalado cypress en la consola. Si no lo tiene instalado, posiciónese en el directorio pruebas-cypress y ejecute el siguiente comando: npm install cypress --save-dev
+* Una vez se posicione en el directorio pruebas-cypress, verá un archivo run-tests.sh. Éste es un bash script que se encarga de ejecutar las pruebas. Dentro de él debe modificar las urls de ghost, la primera línea para la versión antigua de la aplicación y la segunda línea para la version 3.3. También debe modificar las variables con su usuario y contraseña para ingresar a la aplicación. Finalmente, asegúrese que cypress se ejecuta en el directorio correcto. Si acaba de instalar cypress en el directorio del proyecto, no debe modificar nada. De lo contrario, debe modificar esta parte "node_modules/cypress/bin/cypress" por la ruta en donde usted tenga instalado cypress.
+* Ambas aplicaciones de ghost deben estar corriendo para ejecutar las pruebas
+* Para correr las pruebas, debe ejecutar: bash run-tests.sh
 * Si falla(n) algun(os) de los escenarios para F06, asegúrese que puede ingresar con su correo. De lo contrario, debe restaurar su correo al que ha manejado siempre intentando hacer login con alguno de los siguientes correos, usando su contraseña habitual:
     * correovalido1@correo.com
     * correovalido2@correo.com
