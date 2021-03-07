@@ -2,6 +2,7 @@ describe('Ghost', function () {
     const ghost_url = Cypress.env('GHOST_URL')
     const email = Cypress.env('EMAIL')
     const password = Cypress.env('PASSWORD')
+    const ghost_version = 'reference'
 
     beforeEach(()=>{
         cy.viewport(1280,800)
@@ -14,10 +15,40 @@ describe('Ghost', function () {
 
     it('Eliminación de Posts - escenario 1',function(){
         cy.get('#ember28').click()
+        if (ghost_version == 'reference'){
+            cy.screenshot('/bitmaps_reference/F05_e1_p1')
+        }
+        else {
+            cy.screenshot('/bitmaps_test/F05_e1_p1')
+        }
         cy.get('.gh-content-status-published.nowrap').contains('Published').click({force: true})
+        if (ghost_version == 'reference'){
+            cy.screenshot('/bitmaps_reference/F05_e1_p2')
+        }
+        else {
+            cy.screenshot('/bitmaps_test/F05_e1_p2')
+        }
         cy.get('.post-settings').click()
+        if (ghost_version == 'reference'){
+            cy.screenshot('/bitmaps_reference/F05_e1_p3')
+        }
+        else {
+            cy.screenshot('/bitmaps_test/F05_e1_p3')
+        }
         cy.get('.gh-btn.gh-btn-hover-red.gh-btn-icon.settings-menu-delete-button').click()
+        if (ghost_version == 'reference'){
+            cy.screenshot('/bitmaps_reference/F05_e1_p4')
+        }
+        else {
+            cy.screenshot('/bitmaps_test/F05_e1_p4')
+        }
         cy.get('.gh-btn.gh-btn-red.gh-btn-icon.ember-view').contains('Delete').click()
+        if (ghost_version == 'reference'){
+            cy.screenshot('/bitmaps_reference/F05_e1_p5')
+        }
+        else {
+            cy.screenshot('/bitmaps_test/F05_e1_p5')
+        }
 
     })
 

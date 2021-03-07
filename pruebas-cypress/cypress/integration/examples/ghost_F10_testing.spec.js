@@ -2,6 +2,7 @@ describe('Ghost', function () {
     const ghost_url = Cypress.env('GHOST_URL')
     const email = Cypress.env('EMAIL')
     const password = Cypress.env('PASSWORD')
+    const ghost_version = 'reference'
 
     beforeEach(()=>{
         cy.viewport(1280,800)
@@ -14,10 +15,40 @@ describe('Ghost', function () {
 
     it('Invitación de usuarios para que colaboren en la gestión del sitio - escenario 1',function(){
         cy.get('a[href*="#/staff/"]').click({force: true})
+        if (ghost_version == 'reference'){
+            cy.screenshot('/bitmaps_reference/F10_e1_p1')
+        }
+        else {
+            cy.screenshot('/bitmaps_test/F10_e1_p1')
+        }
         cy.get('.gh-btn.gh-btn-green').click()
+        if (ghost_version == 'reference'){
+            cy.screenshot('/bitmaps_reference/F10_e1_p2')
+        }
+        else {
+            cy.screenshot('/bitmaps_test/F10_e1_p2')
+        }
         cy.get('#new-user-email').click()
+        if (ghost_version == 'reference'){
+            cy.screenshot('/bitmaps_reference/F10_e1_p3')
+        }
+        else {
+            cy.screenshot('/bitmaps_test/F10_e1_p3')
+        }
         cy.get('.gh-btn.gh-btn-green.gh-btn-icon.ember-view').click()
+        if (ghost_version == 'reference'){
+            cy.screenshot('/bitmaps_reference/F10_e1_p4')
+        }
+        else {
+            cy.screenshot('/bitmaps_test/F10_e1_p4')
+        }
         cy.get('.response').contains('Please enter an email.')
+        if (ghost_version == 'reference'){
+            cy.screenshot('/bitmaps_reference/F10_e1_p5')
+        }
+        else {
+            cy.screenshot('/bitmaps_test/F10_e1_p5')
+        }
     })
 
     it('Invitación de usuarios para que colaboren en la gestión del sitio - escenario 2',function(){

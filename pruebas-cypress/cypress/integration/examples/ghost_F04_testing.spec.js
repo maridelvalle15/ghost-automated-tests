@@ -2,6 +2,7 @@ describe('Ghost', function () {
     const ghost_url = Cypress.env('GHOST_URL')
     const email = Cypress.env('EMAIL')
     const password = Cypress.env('PASSWORD')
+    const ghost_version = 'reference'
 
     beforeEach(()=>{
         cy.viewport(1280,800)
@@ -16,13 +17,55 @@ describe('Ghost', function () {
 
         it('b', function(){
             cy.get('#ember28').click()
+            if (ghost_version == 'reference'){
+                cy.screenshot('/bitmaps_reference/F04_e1_p1')
+            }
+            else {
+                cy.screenshot('/bitmaps_test/F04_e1_p1')
+            }
             const asdasd = cy.get('.gh-list-row.gh-posts-list-item').first()
+            if (ghost_version == 'reference'){
+                cy.screenshot('/bitmaps_reference/F04_e1_p2')
+            }
+            else {
+                cy.screenshot('/bitmaps_test/F04_e1_p2')
+            }
             cy.get('.gh-main').scrollTo('top')
             asdasd.click()
+            if (ghost_version == 'reference'){
+                cy.screenshot('/bitmaps_reference/F04_e1_p3')
+            }
+            else {
+                cy.screenshot('/bitmaps_test/F04_e1_p3')
+            }
             cy.get('.koenig-editor__editor-wrapper').type('Esta es una prueba para publicar un post con un título de 9 caracteres')
+            if (ghost_version == 'reference'){
+                cy.screenshot('/bitmaps_reference/F04_e1_p4')
+            }
+            else {
+                cy.screenshot('/bitmaps_test/F04_e1_p4')
+            }
             cy.get('.gh-editor-title.ember-text-area.gh-input.ember-view').clear().type('prueba es 1')
+            if (ghost_version == 'reference'){
+                cy.screenshot('/bitmaps_reference/F04_e1_p5')
+            }
+            else {
+                cy.screenshot('/bitmaps_test/F04_e1_p5')
+            }
             cy.get('.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger > span').click()
-            cy.get('.gh-btn.gh-btn-blue.gh-publishmenu-button.gh-btn-icon.ember-view').click()            
+            if (ghost_version == 'reference'){
+                cy.screenshot('/bitmaps_reference/F04_e1_p6')
+            }
+            else {
+                cy.screenshot('/bitmaps_test/F04_e1_p6')
+            }
+            cy.get('.gh-btn.gh-btn-blue.gh-publishmenu-button.gh-btn-icon.ember-view').click()
+            if (ghost_version == 'reference'){
+                cy.screenshot('/bitmaps_reference/F04_e1_p7')
+            }
+            else {
+                cy.screenshot('/bitmaps_test/F04_e1_p7')
+            }            
             })
 
         })
