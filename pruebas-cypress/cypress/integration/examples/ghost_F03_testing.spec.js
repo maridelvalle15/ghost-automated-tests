@@ -1,12 +1,15 @@
 describe('Ghost', function () {
+    const ghost_url = Cypress.env('GHOST_URL')
+    const email = Cypress.env('EMAIL')
+    const password = Cypress.env('PASSWORD')
 
     beforeEach(()=>{
         cy.viewport(1280,800)
-        cy.visit('http://localhost:2368/ghost/#/signin')
-            cy.get('#ember8').type('j.guataquira@uniandes.edu.co')
-            cy.get('#ember10').type('Uniandespili77')
-            cy.get('#ember12 > span').click()
-            cy.wait(1000)
+        cy.visit(ghost_url + '/ghost/#/signin')
+        cy.get('#ember8').type(email)
+        cy.get('#ember10').type(password)
+        cy.get('#ember12 > span').click()
+        cy.wait(1000)
     })
 
     it('Ajustes en el diseño del blog - escenario 1',function(){
