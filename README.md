@@ -83,3 +83,11 @@ NOTA: Para ejecutar ghost_F05_testing.js de manera exitosa debe existir al menos
     * correovalido2@correo.com
     * Finalmente, ejecute las pruebas nuevamente.
 * Si falla(n) algun(os) de los escenarios para F07, asegúrese que puede ingresar con su contraseña. De lo contrario, debe restaurar su contraseña ingresando con la contraseña " Mari1234** ". Ejecute las pruebas nuevamente
+
+### Pros y Contras de ResembleJS
+* Pros
+    * Es una herramienta sencilla que permite comparar imágenes que correspondan a capturas de pantalla de dos versiones de una aplicación de forma automatizada
+    * Permite realizar de manera más eficiente y rápida la comparación entre las imágenes, en comparación a como podría hacerlo un ser humano
+* Contras
+    * La comparación se hace pixel por pixel, por lo que podría encontrar diferencias que corresponda a mejoras en UI o a texto que pueda ser dinámico dependiendo de la persona que se encuentre interactuando con la aplicación
+    * Necesita de intervención humana para determinar si hay diferencias entre las imágenes que no necesariamente puedan corresponder a errores

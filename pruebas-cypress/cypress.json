@@ -5,6 +5,7 @@
   "env": {
     "GHOST_URL": "",
     "EMAIL": "",
-    "PASSWORD": ""
+    "PASSWORD": "",
+    "GHOST_VERSION": ""
   }
 }
