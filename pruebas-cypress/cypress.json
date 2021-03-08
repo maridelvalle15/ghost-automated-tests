@@ -6,6 +6,7 @@
     "GHOST_URL": "",
     "EMAIL": "",
     "PASSWORD": "",
-    "GHOST_VERSION": ""
+    "GHOST_VERSION": "",
+    "VRT": false
   }
 }
