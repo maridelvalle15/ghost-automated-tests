@@ -2,7 +2,7 @@ describe('Ghost', function () {
     const ghost_url = Cypress.env('GHOST_URL')
     const email = Cypress.env('EMAIL')
     const password = Cypress.env('PASSWORD')
-    const ghost_version = 'reference'
+    const ghost_version = Cypress.env('GHOST_VERSION')
 
     beforeEach(()=>{
         cy.viewport(1280,800)
