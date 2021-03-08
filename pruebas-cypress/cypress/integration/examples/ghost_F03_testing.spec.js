@@ -2,7 +2,7 @@ describe('Ghost', function () {
     const ghost_url = Cypress.env('GHOST_URL')
     const email = Cypress.env('EMAIL')
     const password = Cypress.env('PASSWORD')
-    const ghost_version = 'reference'
+    const ghost_version = Cypress.env('GHOST_VERSION')
 
     beforeEach(()=>{
         cy.viewport(1280,800)
@@ -14,35 +14,44 @@ describe('Ghost', function () {
     })
 
     it('Ajustes en el diseño del blog - escenario 1',function(){
-        cy.get('#ember41').click()
+        cy.get('a[href*="#/settings/design/"]').click()
+        
         if (ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F03_e1_p1')
         }
         else {
             cy.screenshot('/bitmaps_test/F03_e1_p1')
         }
+        
         cy.get('.gh-blognav-container > .gh-blognav > .gh-blognav-item > .gh-blognav-line > .gh-blognav-label > .gh-input').first().type('Nueva Pestaña',{force: true})
+        
         if (ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F03_e1_p2')
         }
         else {
             cy.screenshot('/bitmaps_test/F03_e1_p2')
         }
+        
         cy.get('.gh-blognav-container > .gh-blognav > .gh-blognav-item > .gh-blognav-add').first().click({force: true})
+        
         if (ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F03_e1_p3')
         }
         else {
             cy.screenshot('/bitmaps_test/F03_e1_p3')
         }
+        
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').click()
+        
         if (ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F03_e1_p4')
         }
         else {
             cy.screenshot('/bitmaps_test/F03_e1_p4')
         }
+        
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').contains('Saved')
+        
         if (ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F03_e1_p5')
         }
@@ -53,7 +62,7 @@ describe('Ghost', function () {
     })
 
     it('Ajustes en el diseño del blog - escenario 2',function(){
-        cy.get('#ember41').click()
+        cy.get('a[href*="#/settings/design/"]').click()
         cy.get('.gh-blognav-container > .gh-blognav > .sortable-objects > .js-draggableObject > .gh-blognav-item > .gh-blognav-delete').first().click({force: true})
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').click()
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').contains('Saved')

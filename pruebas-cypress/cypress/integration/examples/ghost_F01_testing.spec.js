@@ -2,7 +2,7 @@ describe('Ghost under monkeys', function() {
     const ghost_url = Cypress.env('GHOST_URL')
     const email = Cypress.env('EMAIL')
     const password = Cypress.env('PASSWORD')
-    const ghost_version = 'reference'
+    const ghost_version = Cypress.env('GHOST_VERSION')
 
     it('Login fallido en Ghost (Esenario 1 para F01)', function() {
         cy.visit(ghost_url + '/ghost/#/signin');
