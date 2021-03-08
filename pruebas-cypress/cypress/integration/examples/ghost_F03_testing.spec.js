@@ -3,6 +3,7 @@ describe('Ghost', function () {
     const email = Cypress.env('EMAIL')
     const password = Cypress.env('PASSWORD')
     const ghost_version = Cypress.env('GHOST_VERSION')
+    const is_vrt = Cypress.env('VRT')
 
     beforeEach(()=>{
         cy.viewport(1280,800)
@@ -15,37 +16,37 @@ describe('Ghost', function () {
 
     it('Ajustes en el diseño del blog - escenario 1',function(){
         cy.get('a[href*="#/settings/design/"]').click()
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F03_e1_p1')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F03_e1_p1')
         }
         
         cy.get('.gh-blognav-container > .gh-blognav > .gh-blognav-item > .gh-blognav-line > .gh-blognav-label > .gh-input').first().type('Nueva Pestaña',{force: true})
         
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F03_e1_p2')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F03_e1_p2')
         }
         
         cy.get('.gh-blognav-container > .gh-blognav > .gh-blognav-item > .gh-blognav-add').first().click({force: true})
         
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F03_e1_p3')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F03_e1_p3')
         }
         
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').click()
         cy.get('.gh-btn').first().contains('Saved')
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F03_e1_p4')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F03_e1_p4')
         }
 

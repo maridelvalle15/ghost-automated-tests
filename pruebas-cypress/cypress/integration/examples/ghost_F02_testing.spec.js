@@ -3,6 +3,7 @@ describe('Ghost', function () {
     const email = Cypress.env('EMAIL')
     const password = Cypress.env('PASSWORD')
     const ghost_version = Cypress.env('GHOST_VERSION')
+    const is_vrt = Cypress.env('VRT')
 
     beforeEach(()=>{
         cy.viewport(1280,800)
@@ -16,18 +17,18 @@ describe('Ghost', function () {
 
     it('Cierre de sesión exitoso es Ghost (Esenario 1 para F02)', function() {
         cy.get('.w3.mr1.fill-darkgrey').click()
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F02_e1_p1')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F02_e1_p1')
         }
         cy.get('a[href*="#/signout/"]').click()
         cy.wait(100)
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F02_e1_p2')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F02_e1_p2')
         }
         //cy.url().should('eq', ghost_url + '/__/#/signin')
