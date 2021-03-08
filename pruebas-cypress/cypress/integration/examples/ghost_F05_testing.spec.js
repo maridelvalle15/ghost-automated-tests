@@ -14,7 +14,7 @@ describe('Ghost', function () {
     })
 
     it('Eliminación de Posts - escenario 1',function(){
-        cy.get('a[href*="#/posts/"]').first().click()
+        cy.get('a[href*="#/posts/"]').click({force: true})
         if (ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F05_e1_p1')
         }

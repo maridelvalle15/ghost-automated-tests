@@ -16,7 +16,7 @@ describe('Ghost', function () {
     context('Creación de posts para mostrar en el sitio (Esenario 1 para F02)',function(){
 
         it('b', function(){
-            cy.get('#ember28').click()
+            cy.get('a[href*="#/posts/"]').click({force: true})
             if (ghost_version == 'reference'){
                 cy.screenshot('/bitmaps_reference/F04_e1_p1')
             }
@@ -73,7 +73,7 @@ describe('Ghost', function () {
     context('Creación de posts para mostrar en el sitio (Esenario 2 para F02)',function(){
 
         it('b', function(){
-            cy.get('#ember28').click()
+            cy.get('a[href*="#/posts/"]').click({force: true})
             const asdasd = cy.get('.gh-list-row.gh-posts-list-item').first()
             cy.get('.gh-main').scrollTo('top')
             asdasd.click()

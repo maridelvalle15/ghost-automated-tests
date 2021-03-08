@@ -21,20 +21,25 @@ describe('Ghost', function () {
         else {
             cy.screenshot('/bitmaps_test/F03_e1_p1')
         }
+        
         cy.get('.gh-blognav-container > .gh-blognav > .gh-blognav-item > .gh-blognav-line > .gh-blognav-label > .gh-input').first().type('Nueva Pestaña',{force: true})
+        
         if (ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F03_e1_p2')
         }
         else {
             cy.screenshot('/bitmaps_test/F03_e1_p2')
         }
+        
         cy.get('.gh-blognav-container > .gh-blognav > .gh-blognav-item > .gh-blognav-add').first().click({force: true})
+        
         if (ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F03_e1_p3')
         }
         else {
             cy.screenshot('/bitmaps_test/F03_e1_p3')
         }
+        
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').click()
         cy.get('.gh-btn').first().contains('Saved')
         if (ghost_version == 'reference'){
