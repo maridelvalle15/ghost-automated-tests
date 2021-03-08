@@ -76,7 +76,7 @@ describe('Ghost', function () {
         it('b', function(){
             cy.get('a[href*="#/posts/"]').first().click({force: true})
             const asdasd = cy.get('.gh-list-row.gh-posts-list-item').first()
-            cy.get('.gh-main').scrollTo('top')
+            cy.get('.gh-main').scrollTo('top', {'ensureScrollable': false})
             asdasd.click()
             cy.get('.koenig-editor__editor-wrapper').type('Esta es la prueba del escenario 2 para la Funcionalidad 1 (Crear un post con un título de 255 caracteres)')
             cy.get('.gh-editor-title.ember-text-area.gh-input.ember-view').clear().type('Esta es una prueba para publicar un post con un título de 255 caracteres. When you write tests against a web page, you need to refer to elements within that web page in order to click links and determine whats displayed. However, if you write tests that')
