@@ -17,7 +17,7 @@ describe('Ghost', function () {
     context('Creación de posts para mostrar en el sitio (Esenario 1 para F02)',function(){
 
         it('b', function(){
-            cy.get('a[href*="#/posts/"]').click({force: true})
+            cy.get('a[href*="#/posts/"]').first().click({force: true})
             if (is_vrt && ghost_version == 'reference'){
                 cy.screenshot('/bitmaps_reference/F04_e1_p1')
             }
@@ -31,7 +31,7 @@ describe('Ghost', function () {
             else if (is_vrt && ghost_version == 'test') {
                 cy.screenshot('/bitmaps_test/F04_e1_p2')
             }
-            cy.get('.gh-main').scrollTo('top')
+            cy.get('.gh-main').scrollTo('top', {'ensureScrollable': false})
             asdasd.click()
             if (is_vrt && ghost_version == 'reference'){
                 cy.screenshot('/bitmaps_reference/F04_e1_p3')
@@ -74,7 +74,7 @@ describe('Ghost', function () {
     context('Creación de posts para mostrar en el sitio (Esenario 2 para F02)',function(){
 
         it('b', function(){
-            cy.get('a[href*="#/posts/"]').click({force: true})
+            cy.get('a[href*="#/posts/"]').first().click({force: true})
             const asdasd = cy.get('.gh-list-row.gh-posts-list-item').first()
             cy.get('.gh-main').scrollTo('top')
             asdasd.click()
