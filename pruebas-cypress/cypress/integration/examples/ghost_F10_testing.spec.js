@@ -3,6 +3,7 @@ describe('Ghost', function () {
     const email = Cypress.env('EMAIL')
     const password = Cypress.env('PASSWORD')
     const ghost_version = Cypress.env('GHOST_VERSION')
+    const is_vrt = Cypress.env('VRT')
 
     beforeEach(()=>{
         cy.viewport(1280,800)
@@ -15,38 +16,38 @@ describe('Ghost', function () {
 
     it('Invitación de usuarios para que colaboren en la gestión del sitio - escenario 1',function(){
         cy.get('a[href*="#/staff/"]').click({force: true})
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F10_e1_p1')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F10_e1_p1')
         }
         cy.get('.gh-btn.gh-btn-green').click()
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F10_e1_p2')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F10_e1_p2')
         }
         cy.get('#new-user-email').click()
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F10_e1_p3')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F10_e1_p3')
         }
         cy.get('.gh-btn.gh-btn-green.gh-btn-icon.ember-view').click()
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F10_e1_p4')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F10_e1_p4')
         }
         cy.get('.response').contains('Please enter an email.')
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F10_e1_p5')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F10_e1_p5')
         }
     })

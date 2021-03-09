@@ -3,6 +3,7 @@ describe('Ghost', function () {
     const email = Cypress.env('EMAIL')
     const password = Cypress.env('PASSWORD')
     const ghost_version = Cypress.env('GHOST_VERSION')
+    const is_vrt = Cypress.env('VRT')
 
     beforeEach(()=>{
         cy.viewport(1280,800)
@@ -15,53 +16,53 @@ describe('Ghost', function () {
 
     it('Ingresar contraseña actual equivocada (Escenario 1 para F07)', function() {
         cy.get('.w3.mr1.fill-darkgrey').click()
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F07_e1_p1')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F07_e1_p1')
         }
         cy.get('.dropdown-menu.dropdown-triangle-top').contains('Your Profile').click()
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F07_e1_p2')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F07_e1_p2')
         }
         cy.get('#user-password-old').click({force: true}).type('1a1a1a1a1a')
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F07_e1_p3')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F07_e1_p3')
         }
         cy.get('#user-password-new').click({force: true}).type('Mari1234**')
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F07_e1_p4')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F07_e1_p4')
         }
         cy.get('#user-new-password-verification').click({force: true}).type('Mari1234**')
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F07_e1_p5')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F07_e1_p5')
         }
         cy.get('.button-change-password').click()
         cy.wait(1000)
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F07_e1_p6')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F07_e1_p6')
         }
         cy.get('.button-change-password > span').first().contains('Retry')
-        if (ghost_version == 'reference'){
+        if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F07_e1_p7')
         }
-        else {
+        else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F07_e1_p7')
         }
     })
