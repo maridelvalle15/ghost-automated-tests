@@ -1,4 +1,8 @@
 describe('Ghost', function () {
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        return false;
+      });
+
     const ghost_url = Cypress.env('GHOST_URL')
     const email = Cypress.env('EMAIL')
     const password = Cypress.env('PASSWORD')
@@ -16,40 +20,40 @@ describe('Ghost', function () {
 
     it('Edición de correo con formato inválido (Escenario 1 para F06)', function() {
         cy.get('.w3.mr1.fill-darkgrey').click()
-        if (is_vrt && ghost_version == 'reference'){
-            cy.screenshot('/bitmaps_reference/F06_e1_p1')
-        }
-        else if (is_vrt && ghost_version == 'test') {
-            cy.screenshot('/bitmaps_test/F06_e1_p1')
-        }
+        // if (is_vrt && ghost_version == 'reference'){
+        //     cy.screenshot('/bitmaps_reference/F06_e1_p1')
+        // }
+        // else if (is_vrt && ghost_version == 'test') {
+        //     cy.screenshot('/bitmaps_test/F06_e1_p1')
+        // }
         cy.get('.dropdown-menu.dropdown-triangle-top').contains('Your Profile').click()
-        if (is_vrt && ghost_version == 'reference'){
-            cy.screenshot('/bitmaps_reference/F06_e1_p2')
-        }
-        else if (is_vrt && ghost_version == 'test') {
-            cy.screenshot('/bitmaps_test/F06_e1_p2')
-        }
+        // if (is_vrt && ghost_version == 'reference'){
+        //     cy.screenshot('/bitmaps_reference/F06_e1_p2')
+        // }
+        // else if (is_vrt && ghost_version == 'test') {
+        //     cy.screenshot('/bitmaps_test/F06_e1_p2')
+        // }
         cy.get('#user-email').click({force: true}).clear().type('correo inválido')
-        if (is_vrt && ghost_version == 'reference'){
-            cy.screenshot('/bitmaps_reference/F06_e1_p3')
-        }
-        else if (is_vrt && ghost_version == 'test') {
-            cy.screenshot('/bitmaps_test/F06_e1_p3')
-        }
+        // if (is_vrt && ghost_version == 'reference'){
+        //     cy.screenshot('/bitmaps_reference/F06_e1_p3')
+        // }
+        // else if (is_vrt && ghost_version == 'test') {
+        //     cy.screenshot('/bitmaps_test/F06_e1_p3')
+        // }
         cy.get('.gh-btn-blue').click()
-        if (is_vrt && ghost_version == 'reference'){
-            cy.screenshot('/bitmaps_reference/F06_e1_p4')
-        }
-        else if (is_vrt && ghost_version == 'test') {
-            cy.screenshot('/bitmaps_test/F06_e1_p4')
-        }
+        // if (is_vrt && ghost_version == 'reference'){
+        //     cy.screenshot('/bitmaps_reference/F06_e1_p4')
+        // }
+        // else if (is_vrt && ghost_version == 'test') {
+        //     cy.screenshot('/bitmaps_test/F06_e1_p4')
+        // }
         cy.get('.gh-btn-red > span').first().contains('Retry')
-        if (is_vrt && ghost_version == 'reference'){
-            cy.screenshot('/bitmaps_reference/F06_e1_p5')
-        }
-        else if (is_vrt && ghost_version == 'test') {
-            cy.screenshot('/bitmaps_test/F06_e1_p5')
-        }
+        // if (is_vrt && ghost_version == 'reference'){
+        //     cy.screenshot('/bitmaps_reference/F06_e1_p5')
+        // }
+        // else if (is_vrt && ghost_version == 'test') {
+        //     cy.screenshot('/bitmaps_test/F06_e1_p5')
+        // }
     })
 
     it('Edición de correo con formato inválido (Escenario 2 para F06)', function() {
@@ -62,10 +66,41 @@ describe('Ghost', function () {
 
     it('Edición de correo con campo vacio (Escenario 3 para F06)', function() {
         cy.get('.w3.mr1.fill-darkgrey').click()
+        cy.wait(1000)
+        if (is_vrt && ghost_version == 'reference'){
+            cy.screenshot('/bitmaps_reference/F06_e1_p2')
+        }
+        else if (is_vrt && ghost_version == 'test') {
+            cy.screenshot('/bitmaps_test/F06_e1_p2')
+        }
+        cy.wait(2000)
         cy.get('.dropdown-menu.dropdown-triangle-top').contains('Your Profile').click()
+        cy.wait(2000)
+        if (is_vrt && ghost_version == 'reference'){
+            cy.screenshot('/bitmaps_reference/F06_e1_p3')
+        }
+        else if (is_vrt && ghost_version == 'test') {
+            cy.screenshot('/bitmaps_test/F06_e1_p3')
+        }
+        cy.wait(2000)
         cy.get('#user-email').click({force: true}).clear()
+        cy.wait(1000)
+        if (is_vrt && ghost_version == 'reference'){
+            cy.screenshot('/bitmaps_reference/F06_e1_p4')
+        }
+        else if (is_vrt && ghost_version == 'test') {
+            cy.screenshot('/bitmaps_test/F06_e1_p4')
+        }
+        cy.wait(2000)
         cy.get('.gh-btn-blue').click()
         cy.get('.gh-btn-red > span').first().contains('Retry')
+        if (is_vrt && ghost_version == 'reference'){
+            cy.screenshot('/bitmaps_reference/F06_e1_p5')
+        }
+        else if (is_vrt && ghost_version == 'test') {
+            cy.screenshot('/bitmaps_test/F06_e1_p5')
+        }
+        cy.wait(1000)
     })
 
     it('Edición de correo con formato válido (Escenario 4 para F06)', function() {

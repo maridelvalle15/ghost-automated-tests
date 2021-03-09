@@ -1,4 +1,8 @@
 describe('Ghost', function () {
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        return false;
+    });
+
     const ghost_url = Cypress.env('GHOST_URL')
     const email = Cypress.env('EMAIL')
     const password = Cypress.env('PASSWORD')

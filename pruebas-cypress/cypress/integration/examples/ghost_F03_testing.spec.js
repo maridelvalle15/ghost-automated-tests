@@ -16,31 +16,32 @@ describe('Ghost', function () {
 
     it('Ajustes en el diseño del blog - escenario 1',function(){
         cy.get('a[href*="#/settings/design/"]').click()
+        cy.wait(1000)
         if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F03_e1_p1')
         }
         else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F03_e1_p1')
         }
-        
+        cy.wait(1000)
         cy.get('.gh-blognav-container > .gh-blognav > .gh-blognav-item > .gh-blognav-line > .gh-blognav-label > .gh-input').first().type('Nueva Pestaña',{force: true})
-        
+        cy.wait(1000)
         if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F03_e1_p2')
         }
         else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F03_e1_p2')
         }
-        
+        cy.wait(1000)
         cy.get('.gh-blognav-container > .gh-blognav > .gh-blognav-item > .gh-blognav-add').first().click({force: true})
-        
+        cy.wait(1000)
         if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F03_e1_p3')
         }
         else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F03_e1_p3')
         }
-        
+        cy.wait(1000)
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').click()
         cy.get('.gh-btn').first().contains('Saved')
         if (is_vrt && ghost_version == 'reference'){
