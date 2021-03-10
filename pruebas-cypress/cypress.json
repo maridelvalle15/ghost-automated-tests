@@ -3,9 +3,9 @@
   "modifyObstructiveCode": true,
   "experimentalSourceRewriting": false,
   "env": {
-    "GHOST_URL": "",
-    "EMAIL": "",
-    "PASSWORD": "",
+    "GHOST_URL": "http://localhost:2372",
+    "EMAIL": "marisela.delvalle93@gmail.com",
+    "PASSWORD": "12345678910",
     "GHOST_VERSION": "",
     "VRT": false
   }

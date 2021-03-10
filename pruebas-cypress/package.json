@@ -1,0 +1,14 @@
+{
+  "name": "pruebas-cypress",
+  "version": "1.0.0",
+  "description": "Instrucciones para correr la prueba",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^6.6.0"
+  }
+}

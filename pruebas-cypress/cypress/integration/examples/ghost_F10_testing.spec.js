@@ -15,45 +15,54 @@ describe('Ghost', function () {
     })
 
     it('Invitación de usuarios para que colaboren en la gestión del sitio - escenario 1',function(){
-        cy.get('a[href*="#/staff/"]').click({force: true})
         if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F10_e1_p1')
         }
         else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F10_e1_p1')
         }
+        cy.wait(1000)
+        cy.get('a[href*="#/staff/"]').first().click({force: true})
+        cy.wait(1000)
+        if (is_vrt && ghost_version == 'reference'){
+            cy.screenshot('/bitmaps_reference/F10_e1_p1')
+        }
+        else if (is_vrt && ghost_version == 'test') {
+            cy.screenshot('/bitmaps_test/F10_e1_p1')
+        }
+        cy.wait(1000)
         cy.get('.gh-btn.gh-btn-green').click()
+        cy.wait(1000)
         if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F10_e1_p2')
         }
         else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F10_e1_p2')
         }
+        cy.wait(1000)
         cy.get('#new-user-email').click()
+        cy.wait(1000)
         if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F10_e1_p3')
         }
         else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F10_e1_p3')
         }
+        cy.wait(1000)
         cy.get('.gh-btn.gh-btn-green.gh-btn-icon.ember-view').click()
-        if (is_vrt && ghost_version == 'reference'){
-            cy.screenshot('/bitmaps_reference/F10_e1_p4')
-        }
-        else if (is_vrt && ghost_version == 'test') {
-            cy.screenshot('/bitmaps_test/F10_e1_p4')
-        }
         cy.get('.response').contains('Please enter an email.')
+        cy.wait(1000)
         if (is_vrt && ghost_version == 'reference'){
             cy.screenshot('/bitmaps_reference/F10_e1_p5')
         }
         else if (is_vrt && ghost_version == 'test') {
             cy.screenshot('/bitmaps_test/F10_e1_p5')
         }
+        cy.wait(1000)
     })
 
     it('Invitación de usuarios para que colaboren en la gestión del sitio - escenario 2',function(){
-        cy.get('a[href*="#/staff/"]').click({force: true})
+        cy.get('a[href*="#/staff/"]').first().click({force: true})
         cy.get('.gh-btn.gh-btn-green').click()
         cy.get('#new-user-email').type('email_ivalido.com')
         cy.get('.gh-btn.gh-btn-green.gh-btn-icon.ember-view').click()
@@ -61,14 +70,14 @@ describe('Ghost', function () {
     })
 
     it('Invitación de usuarios para que colaboren en la gestión del sitio - escenario 4',function(){
-        cy.get('a[href*="#/staff/"]').click({force: true})
+        cy.get('a[href*="#/staff/"]').first().click({force: true})
         cy.get('.gh-btn.gh-btn-green').click()
         cy.get('#new-user-email').type('pguataquira@gmail.com')
         cy.get('.gh-btn.gh-btn-green.gh-btn-icon.ember-view').click()
     })
 
     it('Invitación de usuarios para que colaboren en la gestión del sitio - escenario 3',function(){
-        cy.get('a[href*="#/staff/"]').click({force: true})
+        cy.get('a[href*="#/staff/"]').first().click({force: true})
         cy.get('.gh-btn.gh-btn-green').click()
         cy.get('#new-user-email').type('pguataquira@gmail.com')
         cy.get('.gh-btn.gh-btn-green.gh-btn-icon.ember-view').click()

@@ -3,7 +3,6 @@ const compare = (function () {
   const getFolderStructure = function () {
     return fetch(folder_tree)
       .then(function (response) {
-        console.log(response);
         return response.json();
       })
       .then(function (data) {
@@ -11,19 +10,34 @@ const compare = (function () {
       });
   };
 
-  const createRow = function (name) {
+  const createGroup = function (name) {
+    const scenario_name = name.split("/")[2];
+    const id = scenario_name.split(".")[0];
+    let group = document.querySelector("#" + id);
+    if (group) {
+      return group;
+    }
+    group = document.createElement("div");
+    group.className = "group";
+    group.id = id;
+    const title = document.createElement("h2");
+    const title_value = document.createTextNode(scenario_name);
+    title.appendChild(title_value);
+    group.appendChild(title);
+    const container = document.querySelector("#results");
+    container.appendChild(group);
+    return group;
+  };
+
+  const createRow = function (name, group) {
     const row = document.createElement("div");
     row.className = "row";
     const title = document.createElement("h3");
-    const scenario_name = name.split("/")[2];
     const scenario_step = name.split("/")[4];
-    const title_value = document.createTextNode(
-      scenario_name + " | " + scenario_step
-    );
+    const title_value = document.createTextNode(scenario_step);
     title.appendChild(title_value);
     row.appendChild(title);
-    const container = document.querySelector("#results");
-    container.appendChild(row);
+    group.appendChild(row);
     return row;
   };
 
@@ -37,7 +51,8 @@ const compare = (function () {
     resemble(reference)
       .compareTo(test)
       .onComplete(function (data) {
-        const row = createRow(reference);
+        const group = createGroup(reference);
+        const row = createRow(reference, group);
         createImage(reference, row);
         createImage(test, row);
         createImage(data.getImageDataUrl(), row);

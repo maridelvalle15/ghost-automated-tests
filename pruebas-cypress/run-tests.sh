@@ -59,6 +59,15 @@ node_modules/cypress/bin/cypress run --env GHOST_URL=http://localhost:2370,EMAIL
 mkdir vrt_screenshots/examples/ghost_F07_testing.spec.js/bitmaps_test
 cp cypress/screenshots/examples/ghost_F07_testing.spec.js/bitmaps_test/* vrt_screenshots/examples/ghost_F07_testing.spec.js/bitmaps_test/
 
+# F10
+node_modules/cypress/bin/cypress run --env GHOST_URL=http://localhost:2372,EMAIL=marisela.delvalle93@gmail.com,PASSWORD=12345678910,GHOST_VERSION=reference,VRT=true --spec cypress/integration/examples/ghost_F10_testing.spec.js
+mkdir vrt_screenshots/examples/ghost_F10_testing.spec.js
+mkdir vrt_screenshots/examples/ghost_F10_testing.spec.js/bitmaps_reference
+cp cypress/screenshots/examples/ghost_F10_testing.spec.js/bitmaps_reference/* vrt_screenshots/examples/ghost_F10_testing.spec.js/bitmaps_reference/
+node_modules/cypress/bin/cypress run --env GHOST_URL=http://localhost:2370,EMAIL=marisela.delvalle93@gmail.com,PASSWORD=12345678910,GHOST_VERSION=test,VRT=true --spec cypress/integration/examples/ghost_F10_testing.spec.js
+mkdir vrt_screenshots/examples/ghost_F10_testing.spec.js/bitmaps_test
+cp cypress/screenshots/examples/ghost_F10_testing.spec.js/bitmaps_test/* vrt_screenshots/examples/ghost_F10_testing.spec.js/bitmaps_test/
+
 
 # Generate report
 cp -R vrt_screenshots vrt_report/

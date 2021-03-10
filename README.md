@@ -47,47 +47,14 @@ NOTA: Para ejecutar ghost_F05_testing.js de manera exitosa debe existir al menos
 ### Funcionalidades seleccionadas - VRT
 * F06: Edición de correo del usuario loggeado en la aplicación
 * F07: Edición de contraseña del usuario loggeado en la aplicación
-* F08: Creación de tags para posts del sitio
-* F09: Edición de tags para posts del sitio
-* F10: Invitación de usuarios para que colaboren en la gestión del sitio
+* F08: Eliminación de posts
 
 ### Escenarios de prueba - VRT
 * Escenario 1 para F06: Ingresar un correo con formato inválido (sin @) - no permite modificar
 * Escenario 2 para F06: Ingresar un correo con formato inválido (sin xx.xx despues del @)  - no permite modificar
 * Escenario 3 para F06: Ingresar un correo con formato válido - debe permitir modificar
 * Escenario 4 para F06: Ingresar un correo con formato válido - al cerrar sesión debe poder ingresar con el nuevo correo 
-* Escenario 1 para F07: Ingresar contraseña actual equivocada - no permite modificar
-* Escenario 2 para F07: Ingresar verificación de contraseña equivocada - no permite modificar
+* Escenario 1 para F07: Ingresar contraseña de 8 caracteres - permite modificar
+* Escenario 2 para F07: Ingresar contraseña con caracteres especiales - permite modificar
 * Escenario 3 para F07: Ingresar contraseña alfanumérica de 10 caracteres - permite modificar
 * Escenario 4 para F07: Ingresar contraseña alfanumérica de 10 caracteres - permite modificar y al cerrar sesión debe poder ingresar con la nueva contraseña
-* Escenario 1 para F08: Crear una tag pública
-* Escenario 2 para F08: Crear una tag sin nombre - no permite crear
-* Escenario 3 para F08: Crear una tag interna
-* Escenario 4 para F08: Crear una tag interna con un mismo nombre ya existente
-* Escenario 1 para F09: Editar nombre de un tag
-* Escenario 2 para F09: Borrar nombre de un tag creado y guardar - no permite guardar
-* Escenario 3 para F09: Editar slug de un tag
-* Escenario 4 para F09: Editar descripción de un tag
-* Escenario 1 para F10: Invitar persona sin ingresar un email - no permite enviar invitación
-* Escenario 2 para F10: Invitar persona con email inválido - no permite enviar invitación
-* Escenario 3 para F10: Invitar persona con email válido - permite enviar invitación
-* Escenario 4 para F10: Invitar persona con un mismo e-mail ya invitado - no permite enviar invitación
-
-### Ejecución de pruebas con Cypress - VRT
-* Debe tener instalado cypress en la consola. Si no lo tiene instalado, posiciónese en el directorio pruebas-cypress y ejecute el siguiente comando: npm install cypress --save-dev
-* Una vez se posicione en el directorio pruebas-cypress, verá un archivo run-tests.sh. Éste es un bash script que se encarga de ejecutar las pruebas. Dentro de él debe modificar las urls de ghost, la primera línea para la versión antigua de la aplicación y la segunda línea para la version 3.3. También debe modificar las variables con su usuario y contraseña para ingresar a la aplicación. Finalmente, asegúrese que cypress se ejecuta en el directorio correcto. Si acaba de instalar cypress en el directorio del proyecto, no debe modificar nada. De lo contrario, debe modificar esta parte "node_modules/cypress/bin/cypress" por la ruta en donde usted tenga instalado cypress.
-* Ambas aplicaciones de ghost deben estar corriendo para ejecutar las pruebas
-* Para correr las pruebas, debe ejecutar: bash run-tests.sh
-* Si falla(n) algun(os) de los escenarios para F06, asegúrese que puede ingresar con su correo. De lo contrario, debe restaurar su correo al que ha manejado siempre intentando hacer login con alguno de los siguientes correos, usando su contraseña habitual:
-    * correovalido1@correo.com
-    * correovalido2@correo.com
-    * Finalmente, ejecute las pruebas nuevamente.
-* Si falla(n) algun(os) de los escenarios para F07, asegúrese que puede ingresar con su contraseña. De lo contrario, debe restaurar su contraseña ingresando con la contraseña " Mari1234** ". Ejecute las pruebas nuevamente
-
-### Pros y Contras de ResembleJS
-* Pros
-    * Es una herramienta sencilla que permite comparar imágenes que correspondan a capturas de pantalla de dos versiones de una aplicación de forma automatizada
-    * Permite realizar de manera más eficiente y rápida la comparación entre las imágenes, en comparación a como podría hacerlo un ser humano
-* Contras
-    * La comparación se hace pixel por pixel, por lo que podría encontrar diferencias que corresponda a mejoras en UI o a texto que pueda ser dinámico dependiendo de la persona que se encuentre interactuando con la aplicación
-    * Necesita de intervención humana para determinar si hay diferencias entre las imágenes que no necesariamente puedan corresponder a errores
