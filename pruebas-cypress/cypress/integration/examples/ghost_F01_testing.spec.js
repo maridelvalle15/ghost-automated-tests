@@ -7,6 +7,8 @@ describe('Ghost under monkeys', function() {
     const ghost_version = Cypress.env('GHOST_VERSION')
     const is_vrt = Cypress.env('VRT')
 
+    var i;
+
     for (i = 1; i <= 5; i++) {
         // 5 escenario aleatorio
         it(`Login fallido en Ghost para correo registrado - escenario 1 - ${i}`, function() {
