@@ -92,7 +92,66 @@ describe('Ghost', function () {
         cy.get('.button-change-password > span').first().contains('Retry')
     })
 
-    it('Ingresar contraseña alfanumérica de 10 caracteres (Escenario 4 para F07)', function() {
+    for (var i = 1; i <= 3; i++) {
+        // 3 apriori
+        it(`Ingresar campos de nueva contraseña con menos de 10 caracteres - escenario 4 - ${i}`, function() {
+            cy.get('.w3.mr1.fill-darkgrey').click()
+            cy.get('.dropdown-menu.dropdown-triangle-top').contains('Your Profile').click()
+            cy.get('#user-password-old').click({force: true}).type(password)
+            cy.fixture('passwordDataApriori').then(function (passwordData) {
+                let shortPasswordArray = passwordData[0].shortPassword;
+                this.randomShortPassword = shortPasswordArray[Math.floor(Math.random()*shortPasswordArray.length)]
+                cy.get('#user-password-new').click({force: true}).type(this.randomShortPassword)
+                cy.get('#user-new-password-verification').click({force: true}).type(this.randomShortPassword)
+                cy.get('.button-change-password').click()
+                cy.wait(1000)
+                cy.get('.button-change-password > span').first().contains('Retry')
+            })
+        })
+    }
+
+    for (var i = 1; i <= 3; i++) {
+        // 3 apriori
+        it(`Ingresar campos de nueva contraseña insegura - escenario 5 - ${i}`, function() {
+            cy.get('.w3.mr1.fill-darkgrey').click()
+            cy.get('.dropdown-menu.dropdown-triangle-top').contains('Your Profile').click()
+            cy.get('#user-password-old').click({force: true}).type(password)
+            cy.fixture('passwordDataApriori').then(function (passwordData) {
+                let nonSecurePasswordArray = passwordData[1].nonSecurePassword;
+                this.randomnonSecurePassword = nonSecurePasswordArray[Math.floor(Math.random()*nonSecurePasswordArray.length)]
+                cy.get('#user-password-new').click({force: true}).type(this.randomnonSecurePassword)
+                cy.get('#user-new-password-verification').click({force: true}).type(this.randomnonSecurePassword)
+                cy.get('.button-change-password').click()
+                cy.wait(1000)
+                cy.get('.button-change-password > span').first().contains('Retry')
+            })
+        })
+    }
+
+    for (var i = 1; i <= 4; i++) {
+        // 4 apriori
+        it(`Ingresar campos de nueva contraseña valida - escenario 6 - ${i}`, function() {
+            cy.get('.w3.mr1.fill-darkgrey').click()
+            cy.get('.dropdown-menu.dropdown-triangle-top').contains('Your Profile').click()
+            cy.get('#user-password-old').click({force: true}).type(password)
+            cy.fixture('passwordDataApriori').then(function (passwordData) {
+                let validPasswordArray = passwordData[2].validPassword;
+                this.randomValidPassword = validPasswordArray[Math.floor(Math.random()*validPasswordArray.length)]
+                cy.get('#user-password-new').click({force: true}).type(this.randomValidPassword)
+                cy.get('#user-new-password-verification').click({force: true}).type(this.randomValidPassword)
+                cy.get('.button-change-password').click()
+                cy.wait(1000)
+                cy.get('.button-change-password > span').first().contains('Saved')
+
+                cy.get('#user-password-old').click({force: true}).type(this.randomValidPassword)
+                cy.get('#user-password-new').click({force: true}).type(password)
+                cy.get('#user-new-password-verification').click({force: true}).type(password)
+                cy.get('.button-change-password').click()
+            })
+        })
+    }
+
+    it('Ingresar contraseña alfanumérica de 10 caracteres (Escenario 7 para F07)', function() {
         cy.get('.w3.mr1.fill-darkgrey').click()
         cy.get('.dropdown-menu.dropdown-triangle-top').contains('Your Profile').click()
         cy.get('#user-password-old').click({force: true}).type(password)
