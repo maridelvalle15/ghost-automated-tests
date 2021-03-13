@@ -1,3 +1,5 @@
+const faker = require('faker');
+
 describe('Ghost', function () {
     Cypress.on('uncaught:exception', (err, runnable) => {
         return false;
@@ -20,49 +22,30 @@ describe('Ghost', function () {
 
     it('Edición de correo con formato inválido (Escenario 1 para F06)', function() {
         cy.get('.w3.mr1.fill-darkgrey').click()
-        // if (is_vrt && ghost_version == 'reference'){
-        //     cy.screenshot('/bitmaps_reference/F06_e1_p1')
-        // }
-        // else if (is_vrt && ghost_version == 'test') {
-        //     cy.screenshot('/bitmaps_test/F06_e1_p1')
-        // }
+
         cy.get('.dropdown-menu.dropdown-triangle-top').contains('Your Profile').click()
-        // if (is_vrt && ghost_version == 'reference'){
-        //     cy.screenshot('/bitmaps_reference/F06_e1_p2')
-        // }
-        // else if (is_vrt && ghost_version == 'test') {
-        //     cy.screenshot('/bitmaps_test/F06_e1_p2')
-        // }
+
         cy.get('#user-email').click({force: true}).clear().type('correo inválido')
-        // if (is_vrt && ghost_version == 'reference'){
-        //     cy.screenshot('/bitmaps_reference/F06_e1_p3')
-        // }
-        // else if (is_vrt && ghost_version == 'test') {
-        //     cy.screenshot('/bitmaps_test/F06_e1_p3')
-        // }
+
         cy.get('.gh-btn-blue').click()
-        // if (is_vrt && ghost_version == 'reference'){
-        //     cy.screenshot('/bitmaps_reference/F06_e1_p4')
-        // }
-        // else if (is_vrt && ghost_version == 'test') {
-        //     cy.screenshot('/bitmaps_test/F06_e1_p4')
-        // }
+
         cy.get('.gh-btn-red > span').first().contains('Retry')
-        // if (is_vrt && ghost_version == 'reference'){
-        //     cy.screenshot('/bitmaps_reference/F06_e1_p5')
-        // }
-        // else if (is_vrt && ghost_version == 'test') {
-        //     cy.screenshot('/bitmaps_test/F06_e1_p5')
-        // }
+
     })
 
-    it('Edición de correo con formato inválido (Escenario 2 para F06)', function() {
-        cy.get('.w3.mr1.fill-darkgrey').click()
-        cy.get('.dropdown-menu.dropdown-triangle-top').contains('Your Profile').click()
-        cy.get('#user-email').click({force: true}).clear().type('correoinvalido@correo')
-        cy.get('.gh-btn-blue').click()
-        cy.get('.gh-btn-red > span').first().contains('Retry')
-    })
+    var i;
+
+    for (i = 1; i <= 5; i++) {
+        // 5 escenario aleatorio
+        it(`Edición de correo con formato inválido - escenario 2 - ${i}`, function() {
+            cy.get('.w3.mr1.fill-darkgrey').click()
+            cy.get('.dropdown-menu.dropdown-triangle-top').contains('Your Profile').click()
+            let randomWord = faker.random.word();
+            cy.get('#user-email').click({force: true}).clear().type(randomWord)
+            cy.get('.gh-btn-blue').click()
+            cy.get('.gh-btn-red > span').first().contains('Retry')
+        })
+    }
 
     it('Edición de correo con campo vacio (Escenario 3 para F06)', function() {
         cy.get('.w3.mr1.fill-darkgrey').click()
@@ -103,16 +86,36 @@ describe('Ghost', function () {
         cy.wait(1000)
     })
 
-    it('Edición de correo con formato válido (Escenario 4 para F06)', function() {
-        cy.get('.w3.mr1.fill-darkgrey').click()
-        cy.get('.dropdown-menu.dropdown-triangle-top').contains('Your Profile').click()
-        cy.get('#user-email').click({force: true}).clear().type('correovalido1@correo.com')
-        cy.get('.gh-btn-blue').click()
-        cy.get('.gh-btn-red > span').first().contains('Retry').should('not.exist')
-        cy.wait(1000)
-        cy.get('#user-email').click({force: true}).clear().type(email)
-        cy.get('.gh-btn-blue').click()
-        cy.wait(1000)
-    })
+    for (i = 1; i <= 5; i++) {
+        // 5 escenario aleatorio
+        it(`Edición de correo con formato válido (dominio válido) - escenario 4 - ${i}`, function() {
+            cy.get('.w3.mr1.fill-darkgrey').click()
+            cy.get('.dropdown-menu.dropdown-triangle-top').contains('Your Profile').click()
+            let randomEmail = faker.internet.email();
+            cy.get('#user-email').click({force: true}).clear().type(randomEmail)
+            cy.get('.gh-btn-blue').click()
+            cy.get('.gh-btn-red > span').first().contains('Retry').should('not.exist')
+            cy.wait(1000)
+            cy.get('#user-email').click({force: true}).clear().type(email)
+            cy.get('.gh-btn-blue').click()
+            cy.wait(1000)
+        })
+    }
+
+    for (i = 1; i <= 5; i++) {
+        // 5 escenario aleatorio
+        it(`Edición de correo con formato válido (dominio de ejemplo) - escenario 5 - ${i}`, function() {
+            cy.get('.w3.mr1.fill-darkgrey').click()
+            cy.get('.dropdown-menu.dropdown-triangle-top').contains('Your Profile').click()
+            let randomExampleEmail = faker.internet.exampleEmail();
+            cy.get('#user-email').click({force: true}).clear().type(randomExampleEmail)
+            cy.get('.gh-btn-blue').click()
+            cy.get('.gh-btn-red > span').first().contains('Retry').should('not.exist')
+            cy.wait(1000)
+            cy.get('#user-email').click({force: true}).clear().type(email)
+            cy.get('.gh-btn-blue').click()
+            cy.wait(1000)
+        })
+    }
 
 })
