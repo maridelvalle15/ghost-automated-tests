@@ -114,3 +114,7 @@ NOTA: Para ejecutar ghost_F05_testing.js de manera exitosa debe existir al menos
 * Escenarios aleatorios: se definen for loops para los escenarios en los que se desea generar datos antes de ser utilizados con la librería Faker. Se distribuyen de la siguiente forma:
     * F01: se generan 10 escenarios
     * F06: se generan 15 escenarios
+
+
+## Issues reportados para la aplicación Ghost
+Los issues reportados se encuentran en este mismo repositorio, en la sección Issues (https://github.com/maridelvalle15/ghost-automated-tests/issues)
