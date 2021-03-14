@@ -1,3 +1,5 @@
+const faker = require('faker');
+
 describe('Ghost', function () {
     const ghost_url = Cypress.env('GHOST_URL')
     const email = Cypress.env('EMAIL')
@@ -70,12 +72,23 @@ describe('Ghost', function () {
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').contains('Saved')
     })
 
-    it('Edición de tags para posts del sitio - escenario 4',function(){
+    var i, 
+    dataPool = [];
+    for (i = 1; i <= 5; i++) {
+        dataPool.push( {
+            'tagDescription' : faker.lorem.sentence()
+        });
+    };
+    dataPool.forEach(function(data, i) {
+        // 5 dataPool
+    it(`Edición de tags para posts del sitio - escenario 4 - ${i+1}`,function(){
         cy.get('a[href*="#/tags/"]').click()
         cy.get('.gh-tag-list-name').contains('Tag Interna Prueba').click({force: true})
-        cy.get('#tag-description').click({force: true}).type('Esta es una descripción para la edición de un tag')
+        cy.get('#tag-description').click({force: true}).type(data.tagDescription)
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').click()
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').contains('Saved')
     })
+
+});
 
 })
