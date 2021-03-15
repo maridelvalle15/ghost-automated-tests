@@ -64,14 +64,23 @@ describe('Ghost', function () {
        
     })
 
-    it('Edición de tags para posts del sitio - escenario 3',function(){
+    var i, 
+    dataPool = [];
+    for (i = 1; i <= 5; i++) {
+        dataPool.push( {
+            'tagSlug' : faker.lorem.slug()
+        });
+    };
+    dataPool.forEach(function(data, i) {
+        // 5 dataPool
+    it(`Edición de tags para posts del sitio - escenario 3 - ${i+1}`,function(){
         cy.get('a[href*="#/tags/"]').click()
         cy.get('.gh-tag-list-name').contains('Tag Interna Prueba').click({force: true})
-        cy.get('#tag-slug').click({force: true}).type('Ed')
+        cy.get('#tag-slug').click({force: true}).type(data.tagSlug)
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').click()
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').contains('Saved')
+        })
     })
-
     var i, 
     dataPool = [];
     for (i = 1; i <= 5; i++) {
@@ -87,8 +96,8 @@ describe('Ghost', function () {
         cy.get('#tag-description').click({force: true}).type(data.tagDescription)
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').click()
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').contains('Saved')
-    })
+        })
 
-});
+    });
 
 })

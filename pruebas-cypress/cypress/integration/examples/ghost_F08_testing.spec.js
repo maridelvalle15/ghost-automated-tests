@@ -47,13 +47,25 @@ describe('Ghost', function () {
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.gh-btn-red.ember-view').contains('Retry')
     })
 
-    it('Creación de tags para posts del sitio - escenario 3',function(){
+    var i, 
+    dataPool = [];
+    for (i = 1; i <= 5; i++) {
+        dataPool.push( {
+            'tagDescription' : faker.lorem.sentence()
+        });
+    };
+    dataPool.forEach(function(data, i) {
+        // 5 dataPool
+    it(`Creación de tags para posts del sitio - escenario 3 - ${i+1}`,function(){
         cy.get('a[href*="#/tags/"]').click()
         cy.get('button').contains('Internal tags').click()
         cy.get('.ember-view.gh-btn.gh-btn-green.gh-btn-lg').contains('Create a new tag').click()
         cy.get('#tag-name').click({force: true}).type('Tag Interna Prueba')
+        cy.get('#tag-description').click({force: true}).type(data.tagDescription)
         cy.get('.gh-btn.gh-btn-blue.gh-btn-icon.ember-view').click()
         cy.get('button').contains('Saved')
+    })
+
     })
 
     it('Creación de tags para posts del sitio - escenario 4',function(){

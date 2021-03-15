@@ -3,7 +3,7 @@
   "modifyObstructiveCode": true,
   "experimentalSourceRewriting": false,
   "env": {
-    "GHOST_URL": "http://localhost:2372",
+    "GHOST_URL": "http://localhost:2368",
     "EMAIL": "marisela.delvalle93@gmail.com",
     "PASSWORD": "12345678910",
     "GHOST_VERSION": "",

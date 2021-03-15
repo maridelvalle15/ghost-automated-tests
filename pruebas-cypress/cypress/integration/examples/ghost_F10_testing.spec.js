@@ -1,3 +1,5 @@
+const faker = require('faker');
+
 describe('Ghost', function () {
     const ghost_url = Cypress.env('GHOST_URL')
     const email = Cypress.env('EMAIL')
@@ -61,26 +63,66 @@ describe('Ghost', function () {
         cy.wait(1000)
     })
 
-    it('Invitación de usuarios para que colaboren en la gestión del sitio - escenario 2',function(){
-        cy.get('a[href*="#/staff/"]').first().click({force: true})
-        cy.get('.gh-btn.gh-btn-green').click()
-        cy.get('#new-user-email').type('email_ivalido.com')
-        cy.get('.gh-btn.gh-btn-green.gh-btn-icon.ember-view').click()
-        cy.get('.response').contains('Invalid Email.')
-    })
+    for (var i = 1; i <= 10; i++) {
+        // 10 apriori       
+        it(`Invitación de usuarios para que colaboren en la gestión del sitio - escenario 2 - ${i}`,function(){
 
-    it('Invitación de usuarios para que colaboren en la gestión del sitio - escenario 4',function(){
-        cy.get('a[href*="#/staff/"]').first().click({force: true})
-        cy.get('.gh-btn.gh-btn-green').click()
-        cy.get('#new-user-email').type('pguataquira@gmail.com')
-        cy.get('.gh-btn.gh-btn-green.gh-btn-icon.ember-view').click()
-    })
+            cy.get('a[href*="#/staff/"]').first().click({force: true})
+            cy.wait(1000)
+            cy.get('.gh-btn.gh-btn-green').click()
+            cy.fixture('emailDataApriori').then(function (emailData) {
+                let emailInvalidlArray = emailData[0].emailInvalid;
+                this.randomEmailInvalid = emailInvalidlArray[Math.floor(Math.random()*emailInvalidlArray.length)]
+                cy.get('#new-user-email').type(this.randomEmailInvalid)
+                cy.get('.gh-btn.gh-btn-green.gh-btn-icon.ember-view').click()
+                cy.get('.response').contains('Invalid Email.')
+                })
+        })
+    }
 
-    it('Invitación de usuarios para que colaboren en la gestión del sitio - escenario 3',function(){
+    var i;
+
+    for (i = 1; i <= 10; i++) {
+        // 10 escenarios aleatorio
+    it(`Invitación de usuarios para que colaboren en la gestión del sitio - escenario 4a - ${i}`,function(){
         cy.get('a[href*="#/staff/"]').first().click({force: true})
+        cy.wait(100)
         cy.get('.gh-btn.gh-btn-green').click()
-        cy.get('#new-user-email').type('pguataquira@gmail.com')
+        let randomEmail = faker.internet.email();
+        cy.get('#new-user-email').type(randomEmail)
         cy.get('.gh-btn.gh-btn-green.gh-btn-icon.ember-view').click()
-        cy.get('.response').contains('A user with that email address was already invited.')
-    })
+        })
+    }
+
+
+    for (var i = 1; i <= 10; i++) {
+        // 10 apriori
+    it(`Invitación de usuarios para que colaboren en la gestión del sitio - escenario 4b - ${i}`,function(){
+        cy.get('a[href*="#/staff/"]').first().click({force: true})
+        cy.wait(100)
+        cy.get('.gh-btn.gh-btn-green').click()
+        cy.fixture('emailDataApriori').then(function (emailDatas) {
+            let emailValidlArray = emailDatas[1].emailValid;
+            this.randomEmailValid = emailValidlArray[Math.floor(Math.random()*emailValidlArray.length)]
+            cy.get('#new-user-email').type(this.randomEmailValid)
+            cy.get('.gh-btn.gh-btn-green.gh-btn-icon.ember-view').click()
+            })
+        })
+    }
+
+    for (var i = 1; i <= 5; i++) {
+        // 5 apriori
+    it(`Invitación de usuarios para que colaboren en la gestión del sitio - escenario 3 - ${i}`,function(){
+        cy.get('a[href*="#/staff/"]').first().click({force: true})
+        cy.wait(100)
+        cy.get('.gh-btn.gh-btn-green').click()
+        cy.fixture('emailDataApriori').then(function (emailData) {
+            let emailValidlArray = emailData[1].emailValid;
+            this.randomEmailValid = emailValidlArray[Math.floor(Math.random()*emailValidlArray.length)]
+            cy.get('#new-user-email').type(this.randomEmailValid)
+            cy.get('.gh-btn.gh-btn-green.gh-btn-icon.ember-view').click()
+            cy.get('.response').contains('A user with that email address was already invited.')
+            })
+        })
+    }
 })

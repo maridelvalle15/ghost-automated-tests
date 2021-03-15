@@ -1,0 +1,9 @@
+[
+    {
+        "emailInvalid" : ["correoinvalido", "correo@", "correo@1234", "@.co", "123 @.co", "correo@co@co", "correo@ .co", "Correo.co", "123456789", "#$%&@/().co" ]
+    },
+
+    {
+        "emailValid" : ["correovalido@correo.com", "correo1234@correo.com", "123456789@correo.com", "correo_valido@correo.co", "correo2_valido2@correo.co", "correovalido3@correo.com", "correovalido4@correo.com", "correovalido5@correo.com"]
+    }
+]

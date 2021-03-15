@@ -106,15 +106,22 @@ NOTA: Para ejecutar ghost_F05_testing.js de manera exitosa debe existir al menos
 * Adicional a los pasos ya mencionados previamente, se debe ejecutar `npm install` de manera que se instale la librería faker
 
 ### Estrategia utilizadas para la generación de datos
-* A-priori: para esto se aprovechan los fixtures de Cypress. Se crea un archivo `passwordDataApriori` que contiene data de distintos tipos para el ingreso de contraseña. En la prueba `ghost_F07_testing.spec` se generan 10 escenarios con datos de este archivo.
+* A-priori: para esto se aprovechan los fixtures de Cypress. 
+
+    * Se crea un archivo `passwordDataApriori` que contiene data de distintos tipos para el ingreso de contraseña. En la prueba `ghost_F07_testing.spec` se generan 10 escenarios con datos de este archivo.
+    *  Se crea un archivo `emailDataApriori` que contiene data de distintos tipos para el ingreso de emails. En la prueba `ghost_F10_testing.spec` se generan 25 escenarios con datos de este archivo.
 * Data-pool: se definen sets de datos en for loops generados de forma aleatoria con la librería Faker. Se ejecutan escenarios para cada uno de estos sets generados. Se distribuyen de la siguiente forma:
     * F01: se generan 5 escenarios
     * F03: se generan 5 escenarios
     * F04: se generan 20 escenarios
+    * F08: se generan 10 escenarios
+    * F09: se generan 10 escenarios (Se recomienda ejecutar primero `ghost_F08_testing.spec` para generar las etiquetas que se editan en el `ghost_F09_testing.spec` )
 * Escenarios aleatorios: se definen for loops para los escenarios en los que se desea generar datos antes de ser utilizados con la librería Faker. Se distribuyen de la siguiente forma:
     * F01: se generan 10 escenarios
     * F06: se generan 15 escenarios
+    * F10: se generan 10 escenarios
 
 
 ## Issues reportados para la aplicación Ghost
 Los issues reportados se encuentran en este mismo repositorio, en la sección Issues (https://github.com/maridelvalle15/ghost-automated-tests/issues)
+    
