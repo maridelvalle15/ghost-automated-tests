@@ -123,5 +123,7 @@ NOTA: Para ejecutar ghost_F05_testing.js de manera exitosa debe existir al menos
 
 
 ## Issues reportados para la aplicación Ghost
+Nota: Al correrse las pruebas con la generación de datos, se detectó únicamente una falla, la cual está reportada en el link que se menciona a continuación y con el id Issue_F07_5_1
+
 Los issues reportados se encuentran en este mismo repositorio, en la sección Issues (https://github.com/maridelvalle15/ghost-automated-tests/issues)
     
