@@ -1,4 +1,4 @@
-pruebas-kraken/reports/
-pruebas-cypress/vrt_report/vrt_screenshots
-pruebas-cypress/vrt_report/node_modules
-pruebas-cypress/node_modules
+pruebas-e2e-vrt/pruebas-kraken/reports/
+pruebas-e2e-vrt/pruebas-cypress/vrt_report/vrt_screenshots
+pruebas-e2e-vrt/pruebas-cypress/vrt_report/node_modules
+pruebas-e2e-vrt/pruebas-cypress/node_modules
