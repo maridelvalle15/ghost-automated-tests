@@ -1,5 +1,5 @@
 # ghost-automated-tests
-Este repositorio tendrá almacenados los artefactos generados de las pruebas automatizadas de la aplicación Ghost
+Este repositorio tendrá almacenados los artefactos generados para las pruebas de la aplicación Ghost
 
 ### Autores del trabajo
 * Marisela Del Valle: m.delvallem@uniandes.edu.co
@@ -7,6 +7,10 @@ Este repositorio tendrá almacenados los artefactos generados de las pruebas aut
 
 ### Pruebas exploratorias manuales
 Favor remitirse a la wiki de este repositorio o al siguiente link: https://github.com/maridelvalle15/ghost-automated-tests/wiki/Inventario-Pruebas-Manuales-Exploratorias
+
+
+### Pruebas de reconocimiento
+Las pruebas de reconocimiento se pueden ejecutar con las herramientas monkey-cypress y RIPuppet que se encuentran en el directorio `pruebas-reccconocimiento`
 
 ### Funcionalidades seleccionadas - Entrega pruebas E2E
 * F01: Inicio de sesión para usuario registrado en la aplicación
@@ -28,7 +32,7 @@ Favor remitirse a la wiki de este repositorio o al siguiente link: https://githu
 * Escenario 2 para F05: Eliminación de un post que no está publicado
 
 ### Ejecución de pruebas con kraken - Entrega pruebas E2E
-1. Ingresar al directorio pruebas-kraken
+1. Ingresar al directorio pruebas-e2e-vrt/pruebas-kraken
 2. Modificar el archivo Gemfile, y en la cuarta línea modificar el path para que tenga la ruta correspondiente al proyecto KrakenMobile
 3. Para ejecutar todas las pruebas de manera exitosa, se deben modificar los archivos feature/*.feature colocando: las credenciales (correo y contraseña) de un usuario existente en la base de datos de la aplicación Ghost, y la url correspondiente a la aplicación Ghost
 4. La aplicación Ghost debe estar ejecutándose
@@ -37,7 +41,7 @@ Favor remitirse a la wiki de este repositorio o al siguiente link: https://githu
 7. Ejecutar kraken-mobile run para correr las pruebas
 
 ### Ejecución de pruebas con Cypress - Entrega pruebas E2E
-1. Abra Cypres y para iniciar el proceso elija la carpeta pruebas-cypress
+1. Abra Cypres y para iniciar el proceso elija la carpeta pruebas-e2e-vrt/pruebas-cypress
 2. Cypres le cargará los archivos y tendrá acceso a la carpeta integration\examples
 3. Dentro de esta carpeta identifique los archivos denominados ghost_F0X_testing.js. Cada uno de estos archivos contiene las pruebas de los dos escenarios para cada una de las funcionalidades, por ejemplo, el archivo denominado ghost_F01_testing.js contiene las pruebas para los dos escenarios de la Funcionalidad 01 (Inicio de sesión para usuario registrado en la aplicación).
 4. Antes de correr cada prueba, deberá modificar cada uno de los archivos de las pruebas colocando las credenciales de acceso a Ghost (e-mail y password), deberá tener la aplicación corriendo y validar el puerto localhost en el que corre su aplicación (de ser necesario, ajústelo también antes de correr cada prueba)
@@ -85,7 +89,7 @@ NOTA: Para ejecutar ghost_F05_testing.js de manera exitosa debe existir al menos
 
 ### Ejecución de VRT Cypress y generación de reporte de comparación de imágenes con resembleJS - Entrega pruebas VRT
 * Debe tener instalado cypress en la consola. Si no lo tiene instalado, posiciónese en el directorio pruebas-cypress y ejecute el siguiente comando: npm install cypress --save-dev
-* Una vez se posicione en el directorio pruebas-cypress, verá un archivo run-tests.sh. Éste es un bash script que se encarga de ejecutar las pruebas. Dentro de él debe modificar las urls de ghost (ejemplo: http://localhost:2370), la primera línea para la versión antigua de la aplicación y la segunda línea para la version 3.3. También debe modificar las variables con su usuario y contraseña para ingresar a la aplicación. Finalmente, asegúrese que cypress se ejecuta en el directorio correcto. Si acaba de instalar cypress en el directorio del proyecto, no debe modificar nada. De lo contrario, debe modificar esta parte "node_modules/cypress/bin/cypress" por la ruta en donde usted tenga instalado cypress.
+* Una vez se posicione en el directorio pruebas-e2e-vrt/pruebas-cypress, verá un archivo run-tests.sh. Éste es un bash script que se encarga de ejecutar las pruebas. Dentro de él debe modificar las urls de ghost (ejemplo: http://localhost:2370), la primera línea para la versión antigua de la aplicación y la segunda línea para la version 3.3. También debe modificar las variables con su usuario y contraseña para ingresar a la aplicación. Finalmente, asegúrese que cypress se ejecuta en el directorio correcto. Si acaba de instalar cypress en el directorio del proyecto, no debe modificar nada. De lo contrario, debe modificar esta parte "node_modules/cypress/bin/cypress" por la ruta en donde usted tenga instalado cypress.
 * Ambas aplicaciones de ghost deben estar corriendo para ejecutar las pruebas
 * Para correr las pruebas, debe ejecutar: bash run-tests.sh
 * Se recomienda tener al menos 3 posts creados publicados y 3 posts creados en draft para asegurar el correcto funcionamiento de las pruebas
