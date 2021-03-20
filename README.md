@@ -5,6 +5,9 @@ Este repositorio tendrá almacenados los artefactos generados de las pruebas aut
 * Marisela Del Valle: m.delvallem@uniandes.edu.co
 * Pilar Guataquira: j.guataquira@uniandes.edu.co
 
+### Pruebas exploratorias manuales
+Favor remitirse a la wiki de este repositorio o al siguiente link: https://github.com/maridelvalle15/ghost-automated-tests/wiki/Inventario-Pruebas-Manuales-Exploratorias
+
 ### Funcionalidades seleccionadas - Entrega pruebas E2E
 * F01: Inicio de sesión para usuario registrado en la aplicación
 * F02: Cierre de sesión del usuario que se encuentra loggeado en la aplicación
